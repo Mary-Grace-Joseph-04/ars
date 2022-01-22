@@ -1,0 +1,83 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+    <form action="{% url 'reservation_edit' reservation.id %}" method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+          <label for="">departure_city</label><br>
+          <select class="form-control" name="departure_city">
+            <option selected name="departure_city" value="{{reservation.departure_city}}"
+              >{{reservation.departure_city}}</option
+            >
+            {% for i in places%}
+            <option name="departure_city" value="{{i.name}}"
+              >{{i.name}}</option
+            >
+
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">arrival_city</label><br>
+          <select class="form-control" name="arrival_city">
+            <option selected name="arrival_city" value="{{reservation.arrival_city}}"
+              >{{reservation.arrival_city}}</option
+            >
+            {% for i in places%}
+            <option name="arrival_city" value="{{i.name}}"
+              >{{i.name}}</option
+            >
+
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Class</label><br>
+          <select class="form-control" name="classes">
+            <option selected name="classes" value="{{reservation.Class}}"
+              >{{reservation.Class}}</option
+            >
+            {% for i in classes%}
+            <option name="classes" value="{{i.name}}"
+              >{{i.name}}</option
+            >
+
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Date</label><br>
+          <input
+            type="date"
+            value="{{reservation.date | date:'Y-m-d' }}"
+            class="form-control form-control-sm"
+            name="date"
+          />
+        </div>
+
+        <input
+          type="submit"
+          value="Save"
+          class="btn btn-primary btn-primary-sm"
+        />
+      </form>
+      {% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div {% if message.tags %} class="alert alert-sm alert-{{ message.tags }}"{% endif %}>
+        {{ message }}
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+
+    
+
+
+</form>

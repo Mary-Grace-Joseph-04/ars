@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+
+{% if messages %}
+{% for message in messages%}
+<script>
+    alert("{{message}}");
+</script>
+{% endfor %}
+{% endif%}
+
+</head>
+<body style="background-color:LightGray;">
+  
+  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container" style="background-color:rgb(143, 180, 143);" >
+  <div class="center">
+    <button style="background-color:green;"><a href="{%url 'reservation' %}"><b>RESERVATION</b></a></button> &nbsp;
+    <button style="background-color:green;"><a href="{%url 'cancel_list_url' %}"><b>CANCELLATION</b></a></button> &nbsp;
+    <button style="background-color:green;"><a href="{%url 'view-details' %}"><b>VIEW DETAILS</b></a></button>
+
+  </div>
+</div>
+{% endblock %}

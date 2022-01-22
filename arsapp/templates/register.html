@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    {% if messages %}
+    {% for message in messages%}
+    <script>
+        alert("{{message}}");
+    </script>
+    {% endfor %}
+    {% endif%}
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        </nav>
+
+    <h1>Registration Page</h1>
+    <form action="" method="POST">
+        {% csrf_token%}
+
+        <label>USERNAME</label><br>
+        {{form.username}}<br>
+    
+        <label>EMAIL</label><br>
+        {{form.email}}<br>
+
+        <label>PASSWORD1</label><br>
+        {{form.password1}}<br>
+
+        <label>PASSWORD2</label><br>
+        {{form.password2}}<br>
+        {{form.password2.errors}}
+        
+        <label>GENDER</label><br>
+        {{form.gender}}<br>
+
+        <label>DOB</label><br>
+        {{form.dob}}<br>
+        
+        <label>ADDRESS</label><br>
+        {{form.address}}<br>
+        
+        <label>NATIONALITY</label><br>
+        {{form.nationality}}<br>
+
+        <label>PHONE_NO</label><br>
+        {{form.phone_no}}<br>
+
+        <label>FIRST NAME</label><br>
+        {{form.first_name}}<br>
+
+        <label>LAST NAME</label><br>
+        {{form.last_name}}<br>
+        {{form.errors}}
+        
+        <input  type="submit" value="SUBMIT">
+        <a href="{% url 'index' %}"><button type="button">Back</button></a>
+
+    </form>
+</body>
+</html>

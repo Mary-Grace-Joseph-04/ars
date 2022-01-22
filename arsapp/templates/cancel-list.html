@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h1 align="center">Reserved details</h1>
+
+<table class="table table-stripped table-hover">
+    <thead>
+      <tr>
+        <th>departure_city</th>
+        <th>arrival_city</th>
+        <th>Class</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for i in reservation%}
+      <tr>
+        <td>{{i.departure_city}}</td>
+        <td>{{i.arrival_city}}</td>
+        <td>{{i.Class}}</td>
+        <td>{{i.date}}</td>
+
+        <td><button style="background-color:green;">
+          <a
+            href="{% url 'cancel_reservation_url' i.id  %}"
+            class="btn btn-secondary btn-sm"
+            >Cancel</a></button>
+        </td>
+        <td><button style="background-color:green;">
+          <a href="{% url 'userhome' %}"
+           class="btn btn-secondary btn-sm"
+            >Back</a></button>
+            
+        </td>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

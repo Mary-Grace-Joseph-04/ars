@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+    <form action="" method="post">
+    {% csrf_token%}
+        <h1>RESERVATION</h1>
+      
+        <label>departure_city</label><br>
+        {{form.departure_city}}<br>
+
+        <label>arrival_city</label><br>
+        {{form.arrival_city}}<br>
+
+        <label>Class</label><br>
+        {{form.Class}}<br>
+
+        <label>date</label><br>
+        {{form.date}}<br><br>
+
+        {{form.errors}}
+
+
+        <input type="submit" value="Submit">
+        
+        <a href="{% url 'userhome' %}"><button type="button">Back</button></a>
+    </form>
+    {% endblock %}
